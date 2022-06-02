@@ -1,0 +1,145 @@
+$preto: #131316
+$cinza1: #26262c
+$cinza2: #393a41
+$cinza-claro: #6a6b70
+$branco: #F6F7F8
+$red: #C6352F
+$green: #138A36
+
+@import "reset"
+@import "grid"
+
+@import "header"
+@import "alert"
+@import "cart"
+@import "shirt"
+@import "detail"
+@import "form"
+@import "checkout"
+@import "sobre"
+
+body
+    background-color: $branco
+
+button
+    cursor: pointer
+
+.App
+    text-align: center
+
+.backdrop
+    position: fixed
+    width: 100%
+    height: 100vh
+    z-index: 1
+    top: 0
+    left: 0
+    background-color: #00000099
+
+
+.front-text
+    width: 50%
+    margin: 50px auto
+    background-color: $preto
+    border: none
+    border-radius: 10px
+    box-shadow: 0px 0px 10px $cinza-claro
+    h3
+        padding: 30px
+        font-size: 1.25em
+        color: $branco
+    p
+        padding: 30px
+        color: $cinza-claro
+
+.loading
+    position: fixed
+    z-index: 3
+    top: 50%
+    left: 50%
+    &::after
+        position: absolute
+        content: ""
+        top: 0
+        left: 0
+        margin-top: -50px
+        margin-left: -50px
+        width: 100px
+        height: 100px
+        border: 10px solid transparent
+        border-radius: 50%
+        border-top-color: black
+        animation: loading 1s linear infinite
+
+    
+@keyframes loading
+    to
+        transform: rotate(1turn)
+
+.modal
+    position: fixed
+    z-index: 2
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    width: 35%
+    display: flex
+    flex-direction: column
+    background-color: white
+    box-shadow: 1px 1px 20px black
+    border-radius: 10px
+    &-title
+        padding: 20px
+        margin-top: 30px
+    &-close
+        position: absolute
+        top: 15px
+        right: 20px
+        width: 25px
+        height: 25px
+        background:
+            image: url("./img/letra-x.png")
+            color: transparent
+            size: contain
+            repeat: no-repeat
+        border: none
+    &-action
+        button
+            width: 30%
+            margin: 20px 10px
+            padding: 10px 0px
+            font-size: 0.9em
+            background-color: $preto
+            color: $branco
+            border: none
+            border-radius: 10px
+            border: 2px solid $preto
+            &:active
+                background-color: $cinza1
+            &:first-child
+                background-color: $branco
+                color: $preto
+            transition: 0.5s ease
+            &:active
+                background-color: $cinza1
+                color: $cinza-claro
+
+.title-1
+    padding: 50px 0
+    color: $cinza1
+
+@media (min-width: 768px) and (max-width: 1024px)
+    .modal
+        width: 50%
+    
+
+@media (max-width: 768px)
+    .title-1
+        font-size: 1.5em
+    .modal
+        width: 80%
+
+
+@media (min-width: 570px) and (max-width: 768px)
+    .modal
+        width: 70%

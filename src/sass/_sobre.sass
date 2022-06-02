@@ -1,0 +1,66 @@
+.sobre
+    width: 60%
+    margin: 0 auto
+    padding: 50px
+    background-color: $preto
+    color: $branco
+    text-align: left
+    font:
+        size: 1.1em
+    border-radius: 10px
+    box-shadow: 0 0 10px #0071B8
+    animation: glow 7s ease infinite, show 1s ease 1 forwards
+    &-credits
+        color: lighten($cinza-claro,20%)
+        font-size: 1.2em
+        font-weight: bold
+    a
+        color: #0071B8
+        font:
+            size: 1.2em
+            weight: bold
+        text-align: center
+    span
+        color: $red
+        font:
+            size: 1.2em
+            weight: bold
+
+
+@keyframes glow
+    0%
+        box-shadow: 0 0 5px #0071B8
+    50%
+        box-shadow: 0 0 70px #0071B8
+    100%
+        box-shadow: 0 0 5px #0071B8
+
+@keyframes show
+    0%
+        opacity: 0
+        transform: translateX(100%)
+    100%
+        opacity: 1
+        transform: transformX(0%)
+
+@keyframes showMobile
+    0%
+        opacity: 0
+        transform: translateX(-100%)
+    100%
+        opacity: 1
+        transform: transformX(0%)
+
+@media (min-width: 768px) and (max-width: 1024px)
+    .sobre
+        width: 80%
+
+@media (max-width: 768px)
+    .sobre
+        width: 100%
+        padding: 25px
+        box-shadow: 0 0 10px #0071B8
+        border-radius: 0
+        animation: none 
+        animation: showMobile 1s ease 1 forwards
+        font-size: 0.7em

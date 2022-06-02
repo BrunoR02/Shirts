@@ -1,0 +1,80 @@
+.detail
+    display: flex
+    width: 80%
+    margin: 50px auto
+    background-color: $branco
+    img
+        width: 55%
+        object-fit: cover
+        transition: 0.5s ease
+        cursor: pointer
+        &:hover
+            box-shadow: 0px 0px 10px $preto
+            transform: scale(1.1)
+    &-info
+        padding: 10px 50px
+        text-align: left
+        &-name
+            margin-bottom: 150px
+            color: $preto
+            font-size: 2em
+        &-desc
+            color: $cinza1
+            font-size: 1.25em
+            font-style: italic
+        &-size
+            margin: 50px 0
+            label
+                color: $cinza1
+                font-size: 1.1em
+            select
+                width: 60px
+                padding: 10px
+                background-color: darken($branco,7%)
+                border: none
+                border-radius: 30px
+        &-price
+            font-size: 3em
+            color: $red
+            font-family: 'Montserrat', sans-serif
+    &-add
+        max-width: 100%
+        width: 100%
+        margin: 50px 0
+        padding: 25px 0px
+        color: darken($branco,5%)
+        font-size: 1.1em
+        background-color: $preto
+        border: none
+        border-radius: 30px
+        transition: 0.5s ease
+        &:active
+            background-color: $cinza1
+            color: $cinza-claro
+
+@media (min-width: 768px) and (max-width: 1024px)
+    .detail
+        width: 100%
+
+@media (max-width: 768px)
+    .detail
+        width: 100%
+        flex-direction: column
+        img
+            width: 100%
+            &:hover
+                box-shadow: none
+                transform: scale(1)
+        &-info
+            padding: 10px 25px
+            &-name
+                margin-bottom: 50px
+                font-size: 1.25em
+            &-desc
+                font-size: 1em
+            &-size
+                margin: 25px 0
+                label
+                    font-size: 1em
+            &-price
+                font-size: 2em

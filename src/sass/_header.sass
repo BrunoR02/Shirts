@@ -1,0 +1,105 @@
+.header
+    display: flex
+    justify-content: space-between
+    padding: 0px 50px
+    background-color: $preto
+    box-shadow: 1px 0 10px $preto
+    &-title
+        margin: 25px 0px
+        h2
+            align-self: center
+            font-size: 2.5em
+            color: $red
+    &-message
+        align-self: center
+        margin-right: 25px
+        color: $branco
+        font-size: 1em
+        text-align: left
+    section
+        display: flex
+    .nav
+        display: flex
+        align-items: center
+        margin-right: 25px
+        li
+            padding: 25px
+            font-size: 1em
+            font-weight: bold
+            color: $branco
+            text-align: center
+            transition: 0.1s ease
+            &:hover
+                color: $red
+                border-bottom: 2px solid $branco
+    .logout
+        width: 100%
+        height: 50px
+        margin-right: 10px
+        padding: 0px 25px
+        background-color: $branco
+        border: none
+        border-radius: 30px
+        color: $preto
+        font-weight: bold
+        font-family: Verdana
+        font-size: 1em
+        transition: 0.5s ease
+        &:active
+            background-color: $cinza1
+            color: $branco
+
+
+@media (max-width: 768px)
+    .header 
+        flex-direction: column
+        padding: 0
+        &-title
+            margin: 25px 0 0 0 
+        section
+            justify-content: space-between
+            align-items: center
+        &-menu
+            align-self: center
+            width: 50px
+            height: 50px
+            margin-left: 10px
+            filter: invert(1)
+            border: none
+            background:
+                image: url("./img/menu.png")
+                size: cover
+                repeat: no-repeat
+        &-message
+            margin-right: 0
+        .nav 
+            position: absolute
+            width: 100%
+            margin-right: 0
+            flex-direction: column
+            transform: translate(-100%,108px)
+            z-index: 5
+            background-color: $preto
+            transition: transform 0.3s ease
+            li
+                padding: 15px 10px
+                &:hover 
+                    border-bottom: none
+            &-logged
+                transform: translate(-100%,84px)
+        .logout
+            margin-right: 0
+            background-color: $preto
+            color: $branco
+            &:active
+                background-color: $preto
+                color: $red
+
+@media (min-width: 450px) and (max-width: 768px)
+    .header-menu
+        margin-left: 25px
+            
+.header .menu-active
+    transform: translate(0%,108px)
+    &-logged
+        transform: translate(0%,84px)

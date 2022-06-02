@@ -1,0 +1,131 @@
+.text-1
+    margin: 25px 0
+    animation: slide 1s ease 1 forwards
+    a
+        color: #0071B8
+
+.form
+    display: flex
+    flex-direction: column
+    width: 25%
+    margin: 0 auto
+    animation: slide 1s ease 1 forwards
+    &-control
+        display: flex
+        flex-direction: column
+        width: 100%
+        margin: 0 auto
+        font-weight: bold
+    input
+        margin-bottom: 25px
+        padding: 10px 0px 0px 0px
+        font-size: 1.1em
+        font-weight: bold
+        background-color: $branco
+        border: none
+        border-bottom: 2px solid $cinza-claro
+        &:focus
+            outline: none
+    label
+        text-align: left
+        font-size: 0.7em
+    button
+        margin-top: 25px
+        padding: 15px 0px
+        font-size: 1em
+        font-weight: bold
+        background-color: $preto
+        color: $branco
+        border: none
+        border-radius: 10px
+        transition: 0.5s ease
+        &:active
+            background-color: $cinza1
+            color: $cinza-claro
+        &:disabled
+            background-color: $cinza-claro
+            &:active
+                background-color: $cinza-claro
+                color: $branco
+
+.button-1
+    width: 25%
+    margin-top: 25px
+    padding: 15px 0px
+    font-size: 1em
+    font-weight: bold
+    background-color: $branco
+    color: $preto
+    border: 2px solid $preto
+    border-radius: 10px
+    transition: 0.5s ease
+    animation: slide 1s ease 1 forwards
+    &:active
+        background-color: $cinza1
+        color: $cinza-claro
+    &:disabled
+        background-color: $cinza-claro
+        &:active
+            background-color: $cinza-claro
+            color: $branco
+
+
+//Error input
+
+.error
+    color: $red
+    &-input
+        border-bottom-color: $red !important
+    &-message
+        position: absolute
+        transform: translateY(50px)
+        font-size: 0.7em
+        text-align: left
+
+@keyframes slide
+    0%
+        opacity: 0
+        transform: translateX(100%)
+    100%
+        opacity: 1
+        transform: transformX(0%)
+
+@keyframes slideMobile
+    0%
+        opacity: 0
+        transform: translateX(-100%)
+    100%
+        opacity: 1
+        transform: transformX(0%)
+
+
+@media (min-width: 768px) and (max-width: 1024px)
+    .form
+        width: 35%
+        animation: slideMobile 1s ease 1 forwards
+    .button-1
+        width: 35%
+        animation: slideMobile 1s ease 1 forwards
+    .text-1
+        animation: slideMobile 1s ease 1 forwards
+
+@media (max-width: 768px)
+    .form
+        width: 50%
+        animation: slideMobile 1s ease 1 forwards
+    .button-1
+        width: 50%
+        animation: slideMobile 1s ease 1 forwards
+    .text-1
+        animation: slideMobile 1s ease 1 forwards
+
+@media (max-width: 530px)
+    .form
+        width: 65%
+    .button-1
+        width: 65%
+        font-size: 0.9em
+    .text-1
+        font-size: 0.9em
+    .error-message
+        font-size: 0.6em

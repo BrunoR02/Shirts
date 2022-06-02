@@ -1,0 +1,39 @@
+.checkout
+    &-message
+        width: 60%
+        margin: 0 auto
+        padding: 50px
+        background-color: $preto
+        color: $branco
+        font:
+            size: 1.25em
+            weight: bold
+        border-radius: 10px
+        box-shadow: 0 0 10px #0071B8
+        animation: glow 7s linear infinite
+        &-credits
+            color: lighten($cinza-claro,20%)
+        a
+            color: #0071B8
+
+
+@keyframes glow
+    0%
+        box-shadow: 0 0 5px #0071B8
+    50%
+        box-shadow: 0 0 60px #0071B8
+    100%
+        box-shadow: 0 0 5px #0071B8
+
+@media (min-width: 768px) and (max-width: 1024px)
+    .checkout-message
+        width: 80%
+
+@media (max-width: 768px)
+    .checkout-message
+        width: 100%
+        padding: 25px
+        font-size: 1em
+        border-radius: 0
+        box-shadow: 0 0 10px #0071B8
+        animation: none

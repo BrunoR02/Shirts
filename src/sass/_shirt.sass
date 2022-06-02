@@ -1,0 +1,81 @@
+.shirt
+    background-color: $branco
+    &-item
+        background-color: white
+        transition: 0.3s ease
+        box-shadow: 0px 2px 5px $cinza-claro
+        &:hover
+            transform: scale(1.05)
+        &-image
+            width: 100%
+        &-info 
+            h4
+                padding: 10px
+                color: $cinza1
+                font:
+                    family: 'Montserrat', sans-serif
+                    weight: 400
+            span
+                display: block
+                padding-bottom: 10px
+                color: $red
+                font:
+                    family: 'Montserrat', sans-serif
+                    size: 1.2em
+                    weight: bold
+        &-add  
+            margin-bottom: 10px
+            padding: 10px 50px
+            background-color: $branco
+            color: $preto
+            font-weight: bold
+            border: none
+            border-radius: 20px
+            &:active
+                background-color: $cinza-claro
+    &-order
+        align-self: flex-end
+        margin: 20px 0
+        padding: 5px 10px
+        background-color: $branco
+        color: $cinza1
+        font-weight: bold
+        font-size: 0.9em
+        border: 2px solid $cinza-claro
+        border-left: none
+        border-right: none
+        option
+            border: none
+            font:
+                size: 1em
+                weight: bold
+            color: $cinza1
+        &:focus
+            outline: none
+
+@media (min-width: 768px) and (max-width: 1024px)
+    .shirt-order option
+        font-size: 0.8em
+
+@media (max-width: 768px)
+    .shirt
+        &-order 
+            font-size: 0.8em
+            option
+                font-size: 0.8em
+        &-item-info
+            h4 
+                padding: 10px 0
+                font-size: 0.7em
+            span
+                font-size: 1em
+
+                
+@media (min-width: 400px) and (max-width: 768px)
+    .shirt
+        &-item-info
+            h4 
+                padding: 10px 0
+                font-size: 0.9em
+            span
+                font-size: 1em

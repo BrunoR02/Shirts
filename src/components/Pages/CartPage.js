@@ -1,0 +1,66 @@
+import { useContext, useEffect} from "react"
+import { Link, useNavigate } from "react-router-dom"
+import CartItem from "../Cart/CartItem"
+import AlertContext from "../store/alert-context"
+import AuthContext from "../store/auth-context"
+import CartContext from "../store/cart-context"
+
+function CartPage(){
+    const cartCtx = useContext(CartContext)
+    const authCtx = useContext(AuthContext)
+    const alertCtx = useContext(AlertContext)
+
+    const navigate = useNavigate()
+
+    const {defaultTitle} = authCtx 
+    useEffect(()=>{
+        document.title = defaultTitle + " - Sacola"
+    },[defaultTitle])
+    
+    function checkoutHandler(){
+        if(!authCtx.isLogged){
+            alertCtx.createAlert("alert", "Você precisa estar logado para continuar a compra. Faça o login")
+            cartCtx.setBuying()
+            navigate("/login")
+        } else{
+            navigate("/checkout")
+        }
+    }
+
+    return(
+        <>
+            <h2 className="cart-title">SACOLA</h2>
+            <div className="cart-container">
+                {cartCtx.cartTotal === 0 && 
+                    <div className="cart-empty">
+                        <p>Sua Sacola está vazia.</p>
+                        <Link className="cart-empty-link" to="/">Ir para a página inicial</Link>
+                    </div>}
+                {cartCtx.cartTotal > 0 && <>
+                    <ul className="cart-items">
+                        {cartCtx.cartList.map(shirt=>{
+                            return (<CartItem 
+                            key={shirt.item.id + shirt.item.size}
+                            id={shirt.item.id}
+                            name={shirt.item.name} 
+                            amount={shirt.amount}
+                            price={shirt.item.price}
+                            size={shirt.item.size}
+                            img={shirt.item.img}/>)
+                        })}
+                    </ul>
+                    <section className="cart-total">
+                        <h4>Resumo do Pedido:</h4>
+                        <div className="cart-total-value">
+                            Total: <span>R${cartCtx.cartPrice}</span>
+                        </div>
+                        <button onClick={checkoutHandler}>Ir para pagamento</button>
+                    </section>
+                </>}
+                
+            </div>
+        </>
+    )
+}
+
+export default CartPage

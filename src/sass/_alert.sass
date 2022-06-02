@@ -1,0 +1,84 @@
+.alert
+    position: fixed
+    z-index: 3
+    bottom: 50px
+    left: 100%
+    transform: translateX(0%)
+    width: 50%
+    padding: 5px
+    padding-left: 20px
+    padding-right: 50px
+    background-color: $branco
+    color: $preto
+    font-weight: bold
+    text-align: left
+    border-radius: 10px
+    border-inline: solid 7px $preto
+    box-shadow: 1px 1px 10px black
+    animation: alertShow 2s ease-out 1 forwards
+    &-success
+        color: $green
+        border-inline: solid 7px $green
+    &-error
+        color: $red
+        border-inline: solid 7px $red
+    &-alert
+        color: #CBA328
+        border-inline: solid 7px #CBA328
+    &-close
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        right: 20px
+        width: 25px
+        height: 25px
+        background:
+            image: url("./img/letra-x.png")
+            color: transparent
+            size: contain
+            repeat: no-repeat
+        border: none
+    &-fadeout
+        animation: fadeout 2s ease-out 1 forwards
+
+@keyframes alertShow
+    0%
+        opacity: 0
+        left: 100%
+        transform: translateX(0%)
+    50%
+        opacity: 1
+        left: 45%
+        transform: translateX(-50%)
+    70%
+        left: 55%
+        transform: translateX(-50%)
+    90%
+        left: 49%
+        transform: translateX(-50%)
+    100%
+        left: 50%
+        transform: translateX(-50%)
+
+@keyframes fadeout
+    0%
+        opacity: 1
+        left: 50%
+        transform: translateX(-50%)
+    100%
+        opacity: 0
+        left: 50%
+        transform: translateX(-50%)
+    
+@media (min-width: 768px) and (max-width: 1024px)
+    .alert
+        width: 70%
+
+@media (max-width: 768px)
+    .alert
+        width: 90%
+        font-size: 0.7em
+        padding-right: 50px
+        padding-left: 10px
+        &-close
+            right: 10px

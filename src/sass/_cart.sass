@@ -1,0 +1,223 @@
+.cart
+    &-button
+        display: flex
+        align-items: center
+        position: relative
+        padding: 15px 10px
+        align-self: center
+        background-color: $branco
+        border: none
+        border-radius: 30px
+        color: $preto
+        font-weight: bold
+        font-size: 1em
+        span
+            color: $preto
+        transition: 0.2s ease
+        &:hover
+            background-color: $red
+        &-image
+            width: 25px
+            align-self: center
+    &-container
+        width: 80%
+        margin: 0 auto
+        display: flex
+        justify-content: space-between
+    &-title
+        width: 90%
+        margin: 0 auto
+        padding: 25px 75px
+        font-size: 1.5em
+        text-align: left
+        color: $cinza1
+    &-empty
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        p
+            font:
+                size: 1.5em
+                weight: bold
+        &-link
+            padding: 25px 80px
+            background-color: $preto
+            color: $branco
+            border-radius: 20px
+            transition: 0.5s ease
+            &:active
+                background-color: $cinza1
+                color: $cinza-claro
+    &-items
+        width: 60%
+        padding: 25px
+        align-self: flex-start
+        box-shadow: 0px 0px 3px $cinza-claro
+    &-item
+        position: relative
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        padding: 25px 0
+        border-bottom: 1px dashed $cinza-claro
+        &:first-child
+            padding-top: 0
+            button
+                top: 10px
+        &-delete
+            position: absolute
+            top: 30px
+            right: 10px
+            width: 20px
+            height: 20px
+            border: none
+            background: 
+                color: transparent
+                image: url("./img/bin.png")
+                size: contain
+        &-image
+            width: 15%
+            height: auto
+            box-shadow: 1px 1px 3px $preto
+        &-info
+            margin-left: 50px
+            text-align: left
+            p
+                font-size: 0.8em
+                color: $cinza2
+            span
+                font-size: 1.2em
+        &-add
+            font-size: 0.9em
+            color: $cinza1
+            button
+                width: 25px
+                margin: 0 10px
+                border: none
+                background-color: $preto
+                color: $branco   
+        &-price
+            flex: 1
+            align-self: flex-end
+            font-size: 1.2em
+            text-align: right
+            span
+                font-family: 'Montserrat', sans-serif
+                color: $red
+    &-total
+        width: 35%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        height: 250px
+        margin-left: 50px
+        padding: 25px
+        box-shadow: 0px 0px 3px $cinza-claro
+        text-align: left
+        h4
+            font-size: 1.2em
+            color: $cinza1
+        &-value
+            display: flex 
+            padding: 10px
+            justify-content: space-between
+            font-weight: bold
+            font-size: 1em
+            color: $cinza1
+            border: 1px dashed $cinza-claro
+            span
+                font:
+                    weight: bold
+                    family: 'Montserrat', sans-serif
+                    size: 1.1em
+                color: $red
+        button
+            padding: 25px 0px
+            background-color: $preto
+            color: $branco
+            font:
+                size: 1em
+                weight: bold
+            border: none
+            border-radius: 20px
+            transition: 0.5s ease
+            &:active
+                background-color: $cinza1
+                color: $cinza-claro
+
+@media (min-width: 768px) and (max-width: 1024px)
+    .cart   
+        &-title
+            padding: 25px 0px
+        &-container
+            width: 90%
+        &-item
+            &:first-child
+                button
+                    top: 0px
+            &-delete
+                top: 20px
+            &-info
+                margin-left: 25px
+
+@media (max-width: 768px)
+    .cart
+        &-button    
+            margin-bottom: 15px
+            transform: translateY(5px)
+            margin-right: 10px
+        &-title
+            padding: 25px 0px
+            text-align: center
+        &-container
+            width: 100%
+            flex-direction: column
+            justify-content: center
+            align-items: center
+        &-empty
+            width: 80%
+            p
+                padding: 20px
+                font:
+                    size: 1.2em
+            &-link
+                padding: 25px 20px
+        &-items
+            align-self: center
+            width: 100%
+            margin-bottom: 50px
+            padding: 10px
+        &-total
+            width: 100%
+            margin: 0
+        &-item
+            &:first-child
+                button
+                    top: 0px
+            &-delete
+                top: 20px
+            &-info
+                margin-left: 20px
+                a h4
+                    font-size: 1em
+                p
+                    font-size: 0.7em
+            &-add
+                font-size: 0.8em
+                button
+                    margin: 0 5px
+            &-price
+                font-size: 1.2em
+        
+
+@media (min-width: 450px) and (max-width: 768px)
+    .cart
+        &-button    
+            margin-bottom: 15px
+            margin-right: 25px
+
+@media (max-width: 450px)
+    .cart-item-price
+        font-size: 1em
+

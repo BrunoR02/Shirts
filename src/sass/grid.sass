@@ -1,0 +1,37 @@
+$grid-gutter: 20px
+$grid-columns: 12
+$grid-max: 980px
+
+
+
+////
+// Grids
+////
+.container
+  width: $grid-max
+  margin: 0 auto
+
+@media (min-width: 768px) and (max-width: 1024px)
+  .container
+    width: 700px
+
+.container::before, .container::after
+    content:""
+    display: table
+    clear: both
+
+
+@for $i from 1 through 12
+  .grid-#{$i} 
+    width: calc(calc(100% /  12) * $i - $grid-gutter)
+    float: left
+    margin: calc($grid-gutter / 2)
+
+@media (max-width: 768px)
+  .container
+    width: 100%
+  @for $i from 1 through 12
+    .grid-#{$i} 
+      width: calc(calc(100% /  12) * $i - $grid-gutter)
+      float: left
+      margin: calc($grid-gutter / 2)
