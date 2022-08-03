@@ -1,5 +1,4 @@
-function Modal(props){
-
+export default function Modal(props){
     return(
         <div className="modal">
             <button onClick={props.closeModal} className="modal-close"></button>
@@ -11,5 +10,3 @@ function Modal(props){
         </div>
     )
 }
-
-export default Modal

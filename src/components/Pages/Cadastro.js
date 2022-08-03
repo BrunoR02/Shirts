@@ -6,10 +6,10 @@ import AuthContext from "../store/auth-context"
 import {useDispatch} from "react-redux"
 import {actions} from "../store/alert-store"
 
-function Cadastro(){
+export default function Cadastro(){
     const dispatch = useDispatch()
-    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
+    const [isLoading, setIsLoading] = useState(false)
 
     const nameInput = useInput("name")
     const emailInput = useInput("email")
@@ -126,5 +126,3 @@ function Cadastro(){
         </>
     )
 }
-
-export default Cadastro

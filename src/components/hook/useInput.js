@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function useInput(type, form = "register"){
+export default function useInput(type, form = "register"){
     const [enteredValue, setEnteredValue] = useState("")
     const [inputIsTouched, setInputIsTouched] = useState(false)
     const [isValid,setIsValid] = useState(false)
@@ -72,5 +72,3 @@ function useInput(type, form = "register"){
         resetInput,
     }
 }
-
-export default useInput

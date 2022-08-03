@@ -6,7 +6,7 @@ import CartContext from "../store/cart-context"
 import {useDispatch} from "react-redux"
 import {actions} from "../store/alert-store"
 
-function ShirtDetails(){
+export default function ShirtDetails(){
     const dispatch = useDispatch()
     const cartCtx = useContext(CartContext)
     const [shirtItem, setShirtItem] = useState({})
@@ -19,11 +19,7 @@ function ShirtDetails(){
 
     const {defaultTitle} = useContext(AuthContext)
     useEffect(()=>{
-        if(loaded){
-            document.title = defaultTitle + " - " + shirtItem.name
-        } else {
-            document.title = defaultTitle
-        }
+        document.title = loaded ? defaultTitle + " - " + shirtItem.name : defaultTitle
     },[defaultTitle,shirtItem.name,loaded])
 
     useEffect(()=>{
@@ -87,11 +83,7 @@ function ShirtDetails(){
                     <span className="detail-info-price">R${shirtItem.price}</span><br/>
                     <button disabled={added} onClick={addHandler} className="detail-add">{!added ? "Adicionar à sacola": "Item adicionado a sacola!"}</button>
                 </section></>)}
-                
-
             </div>
         </>
     )
 }
-
-export default ShirtDetails

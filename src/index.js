@@ -11,13 +11,13 @@ import store from './components/store/alert-store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthContextProvider>
-  <Provider store={store}>
-  <CartContextProvider>
-    <BrowserRouter>
-      <App />
-      </BrowserRouter>
-  </CartContextProvider>
-  </Provider>
+    <Provider store={store}>
+      <CartContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CartContextProvider>
+    </Provider>
   </AuthContextProvider>
 );
 

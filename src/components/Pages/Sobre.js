@@ -1,7 +1,7 @@
 import {useEffect, useContext} from "react"
 import AuthContext from "../store/auth-context"
 
-function Sobre(){
+export default function Sobre(){
     const {defaultTitle} = useContext(AuthContext) 
     useEffect(()=>{
         document.title = defaultTitle + " - Sobre"
@@ -29,5 +29,3 @@ function Sobre(){
         
     )
 }
-
-export default Sobre

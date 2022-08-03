@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { actions } from "../store/alert-store"
 
-function Alert(props){
+export default function Alert(props){
     const dispatch = useDispatch()
     const alertOn = useSelector(state=>state.alertOn)
     const [classAnimate,setClassAnimate] = useState("")
@@ -30,5 +30,3 @@ function Alert(props){
         </div>
     )
 }
-
-export default Alert

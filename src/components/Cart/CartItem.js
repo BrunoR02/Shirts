@@ -5,39 +5,28 @@ import Modal from "../Modal"
 import Backdrop from "../Backdrop"
 import LoadingSpinner from "../LoadingSpinner"
 
-function CartItem(props){
-    const cartCtx = useContext(CartContext)
+export default function CartItem(props){
+    const {addCart,removeCart} = useContext(CartContext)
     const [modalOn, setModalOn] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
-
-    function openModal(){
-        setModalOn(true)
-    }
-
-    function closeModal(){
-        setModalOn(false)
-    }
-    
 
     function addHandler(){
         setIsLoading(true)
         setTimeout(()=>{
             setIsLoading(false)
-            cartCtx.addCart({id: props.id, size: props.size})
+            addCart({id: props.id, size: props.size})
         },500)
-        
     }
 
     function removeHandler(){
         if(props.amount === 1){
-            openModal()
+            setModalOn(prevState=>!prevState)
         } else{
             setIsLoading(true)
             setTimeout(()=>{
                 setIsLoading(false)
-                cartCtx.removeCart({id: props.id, size: props.size})
+                removeCart({id: props.id, size: props.size})
             },500)
-            
         }
     }
 
@@ -45,9 +34,8 @@ function CartItem(props){
         setIsLoading(true)
         setTimeout(()=>{
             setIsLoading(false)
-            cartCtx.removeCart({id: props.id, size: props.size}, "ALL")
+            removeCart({id: props.id, size: props.size}, "ALL")
         },1000)
-        
     }
 
 
@@ -55,7 +43,7 @@ function CartItem(props){
     return(
         <>
         <li className="cart-item">
-            <button onClick={openModal} className="cart-item-delete"></button>
+            <button onClick={()=>{setModalOn(prevState=>!prevState)}} className="cart-item-delete"></button>
             <img className="cart-item-image" alt={props.name} src={props.img}></img>
             <div className="cart-item-info">
                 <Link to={`/${props.name.toLowerCase().replace(/ /g, "-")}`}><h4>{props.name}</h4></Link>
@@ -72,10 +60,8 @@ function CartItem(props){
             </div>
         </li>
         {isLoading && <LoadingSpinner/>}
-        {modalOn && <Modal closeModal={closeModal} removeItem={removeItemHandler}/>}
-        {modalOn && <Backdrop closeModal={closeModal}/>}
+        {modalOn && <Modal closeModal={()=>{setModalOn(prevState=>!prevState)}} removeItem={removeItemHandler}/>}
+        {modalOn && <Backdrop closeModal={()=>{setModalOn(prevState=>!prevState)}}/>}
         </>
     )
 }
-
-export default CartItem

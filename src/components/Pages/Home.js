@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react"
 import ShirtList from "../Shirt/ShirtList"
 import AuthContext from "../store/auth-context"
 
-function Home(){
+export default function Home(){
     const {defaultTitle} = useContext(AuthContext)
 
     useEffect(()=>{
@@ -16,5 +16,3 @@ function Home(){
         </>
     )
 }
-
-export default Home

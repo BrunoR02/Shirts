@@ -3,7 +3,7 @@ import CartContext from "../store/cart-context"
 import { Link } from "react-router-dom"
 import bag from "../../img/bag.png"
 
-function CartButton(){
+export default function CartButton(){
     const cartCtx = useContext(CartContext)
     
     return(
@@ -12,5 +12,3 @@ function CartButton(){
         </Link>
     )
 }
-
-export default CartButton

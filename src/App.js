@@ -10,7 +10,7 @@ import Cadastro from './components/Pages/Cadastro';
 import AuthContext from './components/store/auth-context';
 import Sobre from './components/Pages/Sobre';
 
-function App() {
+export default function App() {
   const authCtx = useContext(AuthContext)
   
   return (
@@ -29,5 +29,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

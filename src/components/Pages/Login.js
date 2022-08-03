@@ -7,7 +7,7 @@ import CartContext from "../store/cart-context"
 import {useDispatch} from "react-redux"
 import {actions} from "../store/alert-store"
 
-function Login(){
+export default function Login(){
     const dispatch = useDispatch()
     const authCtx = useContext(AuthContext)
     const {ResetBuying, wasBuying} = useContext(CartContext)
@@ -108,5 +108,3 @@ function Login(){
         </>
     )
 }
-
-export default Login

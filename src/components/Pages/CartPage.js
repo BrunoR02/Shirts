@@ -6,20 +6,18 @@ import CartContext from "../store/cart-context"
 import {useDispatch} from "react-redux"
 import {actions} from "../store/alert-store"
 
-function CartPage(){
+export default function CartPage(){
     const dispatch = useDispatch()
-    const cartCtx = useContext(CartContext)
-    const authCtx = useContext(AuthContext)
-
     const navigate = useNavigate()
+    const cartCtx = useContext(CartContext)
+    const {defaultTitle,isLogged} = useContext(AuthContext)
 
-    const {defaultTitle} = authCtx 
     useEffect(()=>{
         document.title = defaultTitle + " - Sacola"
     },[defaultTitle])
     
     function checkoutHandler(){
-        if(!authCtx.isLogged){
+        if(!isLogged){
             dispatch(actions.createAlert({type:"alert", text:"Você precisa estar logado para continuar a compra. Faça o login"}))
             cartCtx.setBuying()
             navigate("/login")
@@ -63,5 +61,3 @@ function CartPage(){
         </>
     )
 }
-
-export default CartPage

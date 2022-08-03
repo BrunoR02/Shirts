@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-function ShirtItem(props){
+export default function ShirtItem(props){
     const slug = props.name.toLowerCase().replace(/ /g, "-")
     const [gridSize,setGridSize] = useState("4")
     useEffect(()=>{
@@ -22,5 +22,3 @@ function ShirtItem(props){
         </Link>
     )
 }
-
-export default ShirtItem

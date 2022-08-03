@@ -9,19 +9,19 @@ import {actions} from "./store/alert-store"
 
 let active = false
 
-function Header(){
+export default function Header(){
     const dispatch = useDispatch()
     const alert = useSelector(state=>state)
     const authCtx = useContext(AuthContext)
-    const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [menuClass, setMenuClass] = useState("")
     const [menuLogged, setMenuLogged] = useState("")
+    const navigate = useNavigate()
     const location = useLocation()
     const [oldURL, setOldURL] = useState(location.pathname)
 
-
     const {autoLogout, ResetAuto, isLogged} = authCtx
+    
     useEffect(()=>{
         if(autoLogout){
             setIsLoading(true)
@@ -94,6 +94,3 @@ function Header(){
         </header>
     )
 }
-
-
-export default Header

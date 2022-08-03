@@ -3,10 +3,10 @@ import { Link } from "react-router-dom"
 import LoadingSpinner from "../LoadingSpinner"
 import AuthContext from "../store/auth-context"
 
-function Checkout(){
+export default function Checkout(){
     const [isLoading,setIsLoading] = useState(false)
-
     const {defaultTitle} = useContext(AuthContext)
+
     useEffect(()=>{
         document.title = defaultTitle + " - Checkout"
     },[defaultTitle])
@@ -38,5 +38,3 @@ function Checkout(){
         </>
     )
 }
-
-export default Checkout

@@ -6,7 +6,7 @@ import {useDispatch} from "react-redux"
 import {actions} from "../store/alert-store"
 
 
-function ShirtList(){
+export default function ShirtList(){
     const dispatch = useDispatch()
     const [shirtList, setShirtList] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -92,8 +92,5 @@ function ShirtList(){
                 </ul>
             </div>
         </>
-        
     )
 }
-
-export default ShirtList
