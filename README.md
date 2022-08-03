@@ -1,5 +1,16 @@
 ### Website Live: https://shirts-4fcd3.web.app/
 
+## Screenshots
+<div style="display: flex, margin: 20px">
+<img src="https://user-images.githubusercontent.com/52260932/182634918-92fa35a1-438c-49d7-a5a5-365c7a91a8d5.png" width="49%">
+<img src="https://user-images.githubusercontent.com/52260932/182635333-a91efe17-c051-4891-b3f0-e33099febde6.png" width="49%">
+<img src="https://user-images.githubusercontent.com/52260932/182637980-f6c9ed55-726b-435d-add5-334a128d4ef7.png" width="49%">
+<img src="https://user-images.githubusercontent.com/52260932/182638861-911f5de0-cc54-4462-a1c0-45b381b21634.png" width="49%">
+
+
+</div>
+
+
 ## Descrição 
 E-commerce de camisetas(shirts) simples. Esse é um projeto de site que eu produzi totalmente em React, usando Firebase como banco de dados e host. Possui várias funcionalidades dentre elas:
 
