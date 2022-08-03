@@ -10,15 +10,12 @@ export default function Sobre(){
         <>
             <h2 className="title-1">Sobre</h2>
             <div className="sobre">
-                <span>Shirts</span> é um e-commerce de camisetas(shirts) simples.
-                Esse é um projeto de site 
-                que eu produzi totalmente em React, 
-                usando Firebase como banco de dados e host.
-                Possui várias funcionalidades dentre elas:<br/>
-                . Sistema de autenticação ligado ao banco de dados.<br/>
-                . Sistema de carrinho funcional, onde você adiciona itens pelo tamanho da roupa.<br/>
-                . Sistema de alerta usado para mostrar avisos e erros, mantendo uma boa experiência ao usuário.<br/>
-                . Feito usando diversas funcionalidades do React tais como Context API, Custom Hook, useCallback, useEffect, useLocation, etc.
+                <h4><span>Shirts</span> de e-commerce de camisetas(shirts) desenvolvido do zero, possuindo implementações funcionais e completas prontas para serem usados em uma aplicação real.<br/></h4>
+                
+                •	Trabalhei uma boa UI que reage ao usuário usando animações e estados do React, bem como também um sistema de alerta funcional usando Redux, garantindo uma boa experiência a qualquer pessoa que queira comprar no site. <br/>
+                •	Desenvolvi um sistema de sessão integrando LocalStorage com gerenciamento de estado global do React (Context API), que reage a inatividade do usuário após um tempo determinado, trazendo segurança caso outro alguém acesse com a sua conta e utilize suas informações, podendo ser reutilizado em qualquer outro site. <br/>
+                •	Autenticação com integração via REST API do Firebase garantindo boa confiabilidade dos dados dos usuários.
+                
                 <p className="sobre-credits">Bruno Lucas Ribeiro Santos<br/>
                 brunolucas23@gmail.com<br/>
                 +55 (79) 98818-8543<br/>

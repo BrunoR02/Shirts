@@ -1085,6 +1085,11 @@ div, a, li, ul, section, h1, h2, h3, h4, h5, h6, header, footer, menu, body, htm
   box-shadow: 0 0 10px #0071B8;
   animation: glow 7s ease infinite, show 1s ease 1 forwards;
 }
+.sobre h4 {
+  color: white;
+  font-style: italic;
+  font-weight: 400;
+}
 .sobre-credits {
   color: #9d9ea3;
   font-size: 1.2em;
