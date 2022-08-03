@@ -1,14 +1,15 @@
 import { useContext, useEffect} from "react"
 import { Link, useNavigate } from "react-router-dom"
 import CartItem from "../Cart/CartItem"
-import AlertContext from "../store/alert-context"
 import AuthContext from "../store/auth-context"
 import CartContext from "../store/cart-context"
+import {useDispatch} from "react-redux"
+import {actions} from "../store/alert-store"
 
 function CartPage(){
+    const dispatch = useDispatch()
     const cartCtx = useContext(CartContext)
     const authCtx = useContext(AuthContext)
-    const alertCtx = useContext(AlertContext)
 
     const navigate = useNavigate()
 
@@ -19,7 +20,7 @@ function CartPage(){
     
     function checkoutHandler(){
         if(!authCtx.isLogged){
-            alertCtx.createAlert("alert", "Você precisa estar logado para continuar a compra. Faça o login")
+            dispatch(actions.createAlert({type:"alert", text:"Você precisa estar logado para continuar a compra. Faça o login"}))
             cartCtx.setBuying()
             navigate("/login")
         } else{

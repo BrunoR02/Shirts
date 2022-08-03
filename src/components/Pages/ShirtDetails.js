@@ -1,13 +1,14 @@
 import { useContext, useEffect,useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import LoadingSpinner from "../LoadingSpinner"
-import AlertContext from "../store/alert-context"
 import AuthContext from "../store/auth-context"
 import CartContext from "../store/cart-context"
+import {useDispatch} from "react-redux"
+import {actions} from "../store/alert-store"
 
 function ShirtDetails(){
+    const dispatch = useDispatch()
     const cartCtx = useContext(CartContext)
-    const {createAlert} = useContext(AlertContext)
     const [shirtItem, setShirtItem] = useState({})
     const [isLoading, setIsLoading] = useState(false)
     const [loaded,setLoaded] = useState(false)
@@ -39,17 +40,17 @@ function ShirtDetails(){
             let item = list.filter(item=>item.price>0).find(item=>item.name.toLowerCase().replace(/ /g, "-")===params.productSlug)
 
             if(!item){
-                createAlert("error","Erro 404! Essa página não existe")
+                dispatch(actions.createAlert({type:"error",text:"Erro 404! Essa página não existe"}))
                 navigate("/")
             }
             setIsLoading(false)
             setShirtItem(item)
             setLoaded(true)
         }).catch((err)=>{
-            createAlert("error", "Erro ao carregar os dados do produto. Recarregue a página.")
+            dispatch(actions.createAlert({type:"error",text:"Erro ao carregar os dados do produto. Recarregue a página."}))
             setIsLoading(false)
         })
-    },[params,navigate,createAlert])
+    },[params,navigate,dispatch])
 
     function updateValue(event){
         setSize(event.target.value)

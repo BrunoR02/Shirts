@@ -1,12 +1,13 @@
-import { useCallback, useContext, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import ShirtItem from "./ShirtItem"
 import LoadingSpinner from "../LoadingSpinner"
 import { useLocation, useNavigate} from "react-router-dom"
-import AlertContext from "../store/alert-context"
+import {useDispatch} from "react-redux"
+import {actions} from "../store/alert-store"
 
 
 function ShirtList(){
-    const {createAlert} = useContext(AlertContext)
+    const dispatch = useDispatch()
     const [shirtList, setShirtList] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [loaded,setLoaded] = useState(false)
@@ -44,10 +45,10 @@ function ShirtList(){
             setIsLoading(false)
             setLoaded(true)
         }).catch((err)=>{
-            createAlert("error", "Erro ao carregar os produtos. Recarregue a página.")
+            dispatch(actions.createAlert({type:"error", text:"Erro ao carregar os produtos. Recarregue a página."}))
             setIsLoading(false)
         })
-    },[createAlert])
+    },[dispatch])
 
 
     useEffect(()=>{

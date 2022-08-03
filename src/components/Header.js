@@ -3,14 +3,16 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import CartButton from "./Cart/CartButton"
 import Alert from "./helper/Alert"
 import LoadingSpinner from "./LoadingSpinner"
-import AlertContext from "./store/alert-context"
 import AuthContext from "./store/auth-context"
+import {useDispatch, useSelector} from "react-redux"
+import {actions} from "./store/alert-store"
 
 let active = false
 
 function Header(){
+    const dispatch = useDispatch()
+    const alert = useSelector(state=>state)
     const authCtx = useContext(AuthContext)
-    const alertCtx = useContext(AlertContext)
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [menuClass, setMenuClass] = useState("")
@@ -20,18 +22,17 @@ function Header(){
 
 
     const {autoLogout, ResetAuto, isLogged} = authCtx
-    const {createAlert} = alertCtx
     useEffect(()=>{
         if(autoLogout){
             setIsLoading(true)
             setTimeout(()=>{
-                createAlert("alert", "Sessão expirada! Faça o login novamente")
+                dispatch(actions.createAlert({type:"alert", text:"Sessão expirada! Faça o login novamente"}))
                 navigate("/")
                 setIsLoading(false)
                 ResetAuto()
             },1000)
         }
-    },[autoLogout,createAlert,ResetAuto,navigate])
+    },[autoLogout,dispatch,ResetAuto,navigate])
 
     function handleLogout(){
         if(active){
@@ -41,7 +42,7 @@ function Header(){
         setTimeout(()=>{
             authCtx.logout()
             setIsLoading(false)
-            alertCtx.createAlert("success", "Usuário deslogado com sucesso!")
+            dispatch(actions.createAlert({type:"success", text:"Usuário deslogado com sucesso!"}))
         },1000)
     }
 
@@ -77,7 +78,7 @@ function Header(){
     return(
         <header className="header">
             {isLoading && <LoadingSpinner/>}
-            {alertCtx.alertOn && <Alert type={alertCtx.type} text={alertCtx.text} />}
+            {alert.alertOn && <Alert type={alert.type} text={alert.text} />}
             <Link to="/" className="header-title"><h2>Shirts</h2></Link>
             <section>
                 {window.screen.width < 768 && <button onClick={handleMenu} className="header-menu"></button>}

@@ -2,12 +2,13 @@ import { useContext, useState, useEffect } from "react"
 import {useNavigate } from "react-router-dom"
 import useInput from "../hook/useInput"
 import LoadingSpinner from "../LoadingSpinner"
-import AlertContext from "../store/alert-context"
 import AuthContext from "../store/auth-context"
 import CartContext from "../store/cart-context"
+import {useDispatch} from "react-redux"
+import {actions} from "../store/alert-store"
 
 function Login(){
-    const alertCtx = useContext(AlertContext)
+    const dispatch = useDispatch()
     const authCtx = useContext(AuthContext)
     const {ResetBuying, wasBuying} = useContext(CartContext)
     const [isLoading, setIsLoading] = useState(false)
@@ -49,7 +50,7 @@ function Login(){
                 return response.json().then((data)=>{
                     emailInput.resetInput()
                     passwordInput.resetInput()
-                    alertCtx.createAlert("success", "Logado com sucesso!")
+                    dispatch(actions.createAlert({type: "success", text:"Logado com sucesso!"}))
                     const expirationTime = new Date(new Date().getTime() + (data.expiresIn * 1000))
                     authCtx.login(data.idToken,data.displayName, expirationTime.toISOString())
                     if(wasBuying){
@@ -72,7 +73,7 @@ function Login(){
                             errorText = "Senha incorreta! Tente novamente"
                         }
                     }
-                    alertCtx.createAlert("error", errorText)
+                    dispatch(actions.createAlert({type: "error", text: errorText}))
                     setIsLoading(false)
                 })
             }

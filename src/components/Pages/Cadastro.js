@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react"
 import useInput from "../hook/useInput"
-import AlertContext from "../store/alert-context"
 import {Link, useNavigate} from "react-router-dom"
 import LoadingSpinner from "../LoadingSpinner"
 import AuthContext from "../store/auth-context"
+import {useDispatch} from "react-redux"
+import {actions} from "../store/alert-store"
 
 function Cadastro(){
-    const alertCtx = useContext(AlertContext)
+    const dispatch = useDispatch()
     const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
 
@@ -64,12 +65,12 @@ function Cadastro(){
                             emailInput.resetInput()
                             passwordInput.resetInput()
                             password2Input.resetInput()
-                            alertCtx.createAlert("success", "Conta cadastrado com sucesso! Faça seu Login")
+                            dispatch(actions.createAlert({type:"success", text: "Conta cadastrado com sucesso! Faça seu Login"}))
                             setIsLoading(false)
                             navigate("/")
                         } else {
                             return response.json().then((data)=>{
-                                alertCtx.createAlert("error", "Erro ao criar sua conta! Tente novamente")
+                                dispatch(actions.createAlert({type:"error", text: "Erro ao criar sua conta! Tente novamente"}))
                                 setIsLoading(false)
                             })
                         }
@@ -86,7 +87,7 @@ function Cadastro(){
                             errorMessage = "Esse email já está cadastrado. Tente outro"
                         }
                     }
-                    alertCtx.createAlert("error", errorMessage)
+                    dispatch(actions.createAlert({type:"error", text: errorMessage}))
                     setIsLoading(false)
                 })
             }
