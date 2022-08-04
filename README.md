@@ -13,13 +13,11 @@
 ## Descrição 
 E-commerce de camisetas(shirts) simples. Esse é um projeto de site que eu produzi totalmente em React, usando Firebase como banco de dados e host. Possui várias funcionalidades dentre elas:
 
-• Sistema de autenticação ligado ao banco de dados.
+•	Trabalhei uma boa UI que reage ao usuário usando animações e estados do React, bem como também um sistema de alerta funcional usando Redux, garantindo uma boa experiência a qualquer pessoa que queira comprar no site. 
 
-• Sistema de carrinho funcional, onde você adiciona itens pelo tamanho da roupa.
+•	Desenvolvi um sistema de sessão integrando LocalStorage com gerenciamento de estado global do React (Context API), que reage a inatividade do usuário após um tempo determinado, trazendo segurança caso outro alguém acesse com a sua conta e utilize suas informações, podendo ser reutilizado em qualquer outro site.
 
-• Sistema de alerta usado para mostrar avisos e erros, mantendo uma boa experiência ao usuário.
-
-• Feito usando diversas funcionalidades do React tais como Context API, Custom Hook, useCallback, useEffect, useLocation, etc.
+•	Autenticação com integração via REST API do Firebase garantindo boa confiabilidade dos dados dos usuários.
 
 ## Como rodar e iniciar o projeto:
 
